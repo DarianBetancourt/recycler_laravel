@@ -21,6 +21,7 @@ class RegisterTest extends DuskTestCase
         $output = new ConsoleOutput();
         $register = new Register;
         $main = new Main;
+        $output->writeln('---------------------------------');
         $output->writeln('Starting test');
         $this->browse(function (Browser $browser) use ($register,$main){
             $browser->visit('/')

@@ -32,7 +32,6 @@ class Register extends Page
      */
     public function assert(Browser $browser)
     {
-
         $browser->assertPathIs($this->url());
     }
 
@@ -45,19 +44,22 @@ class Register extends Page
     {
         return [
             '@element' => '#selector',
+            '@btnRegister'  =>  'div > div > div.w-full.sm\:max-w-md.mt-6.px-6.py-4.bg-white.shadow-md.overflow-hidden.sm\:rounded-lg > form > div.flex.items-center.justify-end.mt-4 > button',
         ];
     }
     public function registerUser(Browser $browser){
-        /* $name=$faker->firstName.' '.$faker->lastName; */
-        $faker = FakerFactory::create();
+        $output = new ConsoleOutput();
+        $output->writeln('Registering');
+        $faker = FakerFactory::create('pt_BR');
         $name=$faker->name;
         $name_pass = explode(" ", $name);
         $browser->type('#name',$name)
                 ->type('#email',$faker->email())
                 ->type('#password',$name_pass[0].'.123')
                 ->type('#password_confirmation',$name_pass[0].'.123')
-                ->click('div > div > div.w-full.sm\:max-w-md.mt-6.px-6.py-4.bg-white.shadow-md.overflow-hidden.sm\:rounded-lg > form > div.flex.items-center.justify-end.mt-4 > button')
-                /* ->press('Register') */
+                ->click('@btnRegister')
                 ->waitForLocation('/dashboard',10);
+        $output->writeln('user : '.$name);
+        $output->writeln('Successful user registration');
     }
 }

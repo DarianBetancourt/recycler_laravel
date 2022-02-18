@@ -1,6 +1,17 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Testes Dusk
+    |--------------------------------------------------------------------------
+    |
+    | This value is used when the framework needs to set the display type of the
+    | dusk tests in the file tests/DuskTestCase.php
+    |
+    */
+
+    'dusk_headless_disabled' => (bool) env('DUSK_HEADLESS', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +117,8 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    /* 'faker_locale' => 'en_US', */
+    'faker_locale' => 'pt_BR',
 
     /*
     |--------------------------------------------------------------------------
