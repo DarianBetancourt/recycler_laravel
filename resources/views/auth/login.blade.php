@@ -52,5 +52,17 @@
                 </x-button>
             </div>
         </form>
+        <div class="my-3 grid grid-cols-3 gap-2 justify-center items-center">
+            <div class="w-full"><hr></div>
+            <div class="text-center">Or</div>
+            <div class="w-full"><hr></div>
+          </div>
+        <div class="mt-3 h-12 w-full flex items-center content-center text-center">
+            <a href="{{('/login-google')}}" class="bg-blue-500 hover:bg-blue-400 text-white   border-b-4 border-blue-700 hover:border-blue-500 rounded w-full justify-center items-center inline-flex">
+                <span class="mr-2">Login with Google</span>
+                <img class="w-10" src="/img/logo-google.png" alt="logo google" >
+            </a>
+        </div>
+
     </x-auth-card>
 </x-guest-layout>
